@@ -4,7 +4,7 @@ public class BrowserController {
     // Clase que utilizando uno de los patrones englobará el resto de Clases que sean necesarias llamar en nuestra aplicacion
     private BrowserEngine browserEngine;
 
-    public BrowserController(BrowserEngine browserEngine) {
+    public BrowserController() {
         // Este llamado puede ser mejorado utilizando otro de los patrones vistos en clases.
         this.browserEngine = new BrowserEngine("Firefox",true, "Estudiante",true, "Estudiante24_");
     }

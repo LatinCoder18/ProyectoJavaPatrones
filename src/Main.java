@@ -1,7 +1,9 @@
+import Browser.BrowserController;
 
 public class Main{
     public static void main(String[] args){
-        System.out.println("Hello, World!");
+        BrowserController bc = new BrowserController();
+        bc.searchSite("Latincoders");
     }
 }
 
