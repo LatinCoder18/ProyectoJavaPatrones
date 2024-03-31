@@ -1,5 +1,8 @@
 package Browser;
 import Browser.BrowserGlobalLogger;
+
+import static java.lang.StringTemplate.STR;
+
 public class BrowserEngine implements QuickSearch{
     private String name;
     private Boolean isPrivateModeEnabled = Boolean.FALSE;
