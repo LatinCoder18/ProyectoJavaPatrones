@@ -19,7 +19,7 @@ public class BrowserEngine implements QuickSearch{
         this.profileName = profileName;
         this.isPasswordProtected = isPasswordProtected;
         this.password = password;
-        this.browserGlobalLogger = new BrowserGlobalLogger();
+        this.browserGlobalLogger = BrowserGlobalLogger.getInstance();
     }
 
     public void searchWord(String param){
@@ -30,7 +30,46 @@ public class BrowserEngine implements QuickSearch{
         System.out.println(STR."Browser Image\{name}");
     }
 
-    public class Builder{
+    public class Builder {
         //TODO: Implementar builder
+        private String name;
+        private Boolean isPrivateModeEnabled = Boolean.FALSE;
+        private String profileName;
+        private Boolean isPasswordProtected;
+        private String password;
+
+        public BrowserEngine.Builder Name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public BrowserEngine.Builder IsPrivateMode(boolean isPrivateModeEnabled) {
+            this.isPrivateModeEnabled = isPrivateModeEnabled;
+            return this;
+        }
+
+        public BrowserEngine.Builder ProfileName(String profileName) {
+            this.profileName = profileName;
+            return this;
+        }
+
+        public BrowserEngine.Builder IsPasswordProtected(boolean isPasswordProtected) {
+            this.isPasswordProtected = isPasswordProtected;
+            return this;
+        }
+
+        private BrowserEngine.Builder Password(String password) {
+            this.password = password;
+            return this;
+        }
     }
+    public BrowserEngine(Builder builder){
+        this.name=builder.name;
+        this.isPrivateModeEnabled=builder.isPrivateModeEnabled;
+        this.profileName=builder.profileName;
+        this.isPasswordProtected=builder.isPasswordProtected;
+        this.password=builder.password;
+        this.browserGlobalLogger = BrowserGlobalLogger.getInstance();
+    }
+
 }
