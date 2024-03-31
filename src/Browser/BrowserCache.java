@@ -1,5 +1,5 @@
 package Browser;
 
 public class BrowserCache {
-    //TODO: Implementar
+    //TODO: Implementar (Proxy)
 }

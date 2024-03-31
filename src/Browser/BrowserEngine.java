@@ -30,7 +30,7 @@ public class BrowserEngine implements QuickSearch{
         System.out.println(STR."Browser Image\{name}");
     }
 
-    public class Builder {
+    public static class Builder {
         //TODO: Implementar builder
         private String name;
         private Boolean isPrivateModeEnabled = Boolean.FALSE;
@@ -58,9 +58,12 @@ public class BrowserEngine implements QuickSearch{
             return this;
         }
 
-        private BrowserEngine.Builder Password(String password) {
+        public BrowserEngine.Builder Password(String password) {
             this.password = password;
             return this;
+        }
+        public BrowserEngine Build(){
+            return new BrowserEngine(this);
         }
     }
     public BrowserEngine(Builder builder){
