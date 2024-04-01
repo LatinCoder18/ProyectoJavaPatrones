@@ -20,14 +20,19 @@ public class BrowserEngine implements QuickSearch{
         this.isPasswordProtected = isPasswordProtected;
         this.password = password;
         this.browserGlobalLogger = BrowserGlobalLogger.getInstance();
+        if(!isPasswordProtected){
+            this.browserGlobalLogger.logWarning(STR."The password is not protected\n\{LogGenerator()}");
+        }
+        this.browserGlobalLogger.logSuccess(STR."Conection \{LogGenerator()}");
     }
 
     public void searchWord(String param){
         System.out.println(STR."Browser Word\{param}");
-        browserGlobalLogger.logInfo("OK");
+        browserGlobalLogger.logInfo(STR."Word \{param} OK\n\{LogGenerator()}");
     }
     public void searchImage(String name){
         System.out.println(STR."Browser Image\{name}");
+        browserGlobalLogger.logInfo(STR."Image \{name} OK\n\{LogGenerator()}");
     }
 
     public static class Builder {
@@ -73,6 +78,13 @@ public class BrowserEngine implements QuickSearch{
         this.isPasswordProtected=builder.isPasswordProtected;
         this.password=builder.password;
         this.browserGlobalLogger = BrowserGlobalLogger.getInstance();
+        if(!isPasswordProtected){
+            this.browserGlobalLogger.logWarning(STR."The password is not protected\n\{LogGenerator()}");
+        }
+        this.browserGlobalLogger.logSuccess(STR."Conection \{LogGenerator()}");
+    }
+    public String LogGenerator(){
+        return STR."@Name:\{name} /@IsPrivateModeEnabled:\{isPrivateModeEnabled} /@ProfileName:\{profileName} /@IsPasswordProtected:\{isPasswordProtected} /@Password:\{password}";
     }
 
 }
