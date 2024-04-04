@@ -1,16 +1,27 @@
 package Browser;
 
-public class BrowserController {
-    // Clase que utilizando uno de los patrones englobará el resto de Clases que sean necesarias llamar en nuestra aplicacion
-    private BrowserEngine browserEngine;
+public class BrowserController implements QuickSearch {
+
+    private BrowserFacade browserEngine;
 
     public BrowserController() {
-        // Este llamado puede ser mejorado utilizando otro de los patrones vistos en clases.
-        this.browserEngine = new BrowserEngine("Firefox",true, "Estudiante",true, "Estudiante24_");
+
+        browserEngine = new BrowserFacade();
+
     }
 
-    public void searchSite(String param){
-        //Implementar patron que permita actuar de intermedio para crear una busqueda previa sobre las busquedas ya realizadas.
+    public void searchImage(String name) {
+        
+        browserEngine.searchImage(name);
+    }
+
+    public void searchWord(String param) {
+       
+        browserEngine.searchWord(param);
+    }
+
+    public void searchSite(String param) {
+        
         browserEngine.searchWord(param);
     }
 }
